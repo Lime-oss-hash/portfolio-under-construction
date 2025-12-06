@@ -1,9 +1,94 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND CSS v4 THEME CONFIGURATION
+   ============================================ */
+
+@theme {
+  /* Primary accent color */
+  --color-primary: #3b82f6;
+
+  /* Dark mode color palette */
+  --color-dark-100: #0a0a0a;
+  --color-dark-200: #1a1a1a;
+  --color-dark-300: #262626;
+  --color-dark-400: #404040;
+  --color-dark-700: #4d4d4d;
+
+  /* Shimmer animation */
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 @layer base {
-    html {
-        @apply scroll-smooth;
-    }
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Default body styling */
+  body {
+    background-color: var(--color-dark-100);
+    color: #e7e5e4; /* stone-200 */
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-dark-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-dark-400);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-dark-700);
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: rgb(59 130 246 / 0.3);
+    color: white;
+  }
+}
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+
+@layer utilities {
+  /* Text gradient utility for special headings */
+  .text-gradient {
+    background-image: linear-gradient(to right, var(--color-primary), #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
