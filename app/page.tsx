@@ -9,7 +9,7 @@ import Footer from "@/app/components/Footer";
 
 const navItems = [
   { name: "Home", link: "#home", icon: <House /> },
-  { name: "Work", link: "#work", icon: <BriefcaseBusiness /> },
+  { name: "Projects", link: "#projects", icon: <BriefcaseBusiness /> },
   { name: "About", link: "#about", icon: <UserRound /> },
   { name: "Contact", link: "#contact", icon: <Contact /> },
 ];

@@ -43,7 +43,7 @@ export default function TechCard({ cardInfo }: TechCardProps) {
           alt={`${name} logo`}
           width={28}
           height={28}
-          className="object-contain"
+          className="object-contain invert brightness-0 invert"
         />
       </div>
 

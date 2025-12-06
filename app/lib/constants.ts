@@ -12,7 +12,7 @@ export const techCardsItems = [
   {
     name: "Next.js",
     description: "React Framework",
-    imageUrl: "/imgs/logos/nextjs.svg",
+    imageUrl: "/imgs/logos/nextdotjs.svg",
     bgColor: "bg-white/10",
   },
   {
@@ -24,20 +24,20 @@ export const techCardsItems = [
   {
     name: "Tailwind CSS",
     description: "Utility-First CSS",
-    imageUrl: "/imgs/logos/tailwind.svg",
+    imageUrl: "/imgs/logos/tailwindcss.svg",
     bgColor: "bg-[#06B6D4]/20",
   },
   {
     name: "Node.js",
     description: "JavaScript Runtime",
-    imageUrl: "/imgs/logos/nodejs.svg",
-    bgColor: "bg-[#339933]/20",
+    imageUrl: "/imgs/logos/nodedotjs.svg",
+    bgColor: "bg-[#68A063]/20",
   },
   {
     name: "PostgreSQL",
     description: "SQL Database",
     imageUrl: "/imgs/logos/postgresql.svg",
-    bgColor: "bg-[#4169E1]/20",
+    bgColor: "bg-[#336791]/20",
   },
   {
     name: "Git",
@@ -46,10 +46,10 @@ export const techCardsItems = [
     bgColor: "bg-[#F05032]/20",
   },
   {
-    name: "Prisma",
-    description: "Database ORM",
-    imageUrl: "/imgs/logos/prisma.svg",
-    bgColor: "bg-white/10",
+    name: "Supabase",
+    description: "Backend as a Service",
+    imageUrl: "/imgs/logos/supabase.svg",
+    bgColor: "bg-[#3ECF8E]/20",
   },
 ];
 
@@ -62,9 +62,9 @@ export const portfolioProjects = [
     description:
       "A Trello-like task management application with drag-and-drop, real-time updates, and team collaboration features.",
     imageUrl: "/imgs/projects/taskflow.png",
-    techStack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    liveUrl: "https://taskflow.example.com",
-    githubUrl: "https://github.com/yourusername/taskflow",
+    techStack: ["Next.js", "TypeScript", "Supabase", "Clerk", "PostgreSQL"],
+    liveUrl: "taskboard-nextjs.vercel.app/",
+    githubUrl: "https://github.com/Lime-oss-hash/taskflow-board",
   },
   {
     id: "project-2",
@@ -73,29 +73,22 @@ export const portfolioProjects = [
     description:
       "A modern, animated portfolio website built with Next.js and Framer Motion, featuring dark mode and responsive design.",
     imageUrl: "/imgs/projects/portfolio.png",
-    techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "https://portfolio.example.com",
-    githubUrl: "https://github.com/yourusername/portfolio",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://portfolio-under-construction-six.vercel.app/",
+    githubUrl: "https://github.com/Lime-oss-hash/portfolio-under-construction",
   },
 ];
 
 // Navigation links for footer
 export const mainNavigationLinks = [
   { label: "Home", href: "#home" },
-  { label: "Work", href: "#work" },
+  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
 // Social media links
 export const socialLinks = [
-  { label: "GitHub", href: "https://github.com/yourusername" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-  { label: "Twitter", href: "https://twitter.com/yourusername" },
-];
-
-// Tooltip items (if needed for avatar groups, etc.)
-export const tooltipItems = [
-  { id: 1, name: "Client 1", image: "/imgs/avatars/avatar1.png" },
-  { id: 2, name: "Client 2", image: "/imgs/avatars/avatar2.png" },
+  { label: "GitHub", href: "https://github.com/Lime-oss-hash" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sam-bai-dev/" },
 ];

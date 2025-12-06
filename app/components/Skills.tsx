@@ -34,9 +34,8 @@ export default function Skills() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="text-sm min-[430px]:text-base max-w-lg md:max-w-3xl text-stone-400"
         >
-          I&apos;m proficient in a range of modern technologies that empower me
-          to build highly functional solutions. These are some of my main
-          technologies.
+          I&apos;m constantly learning and building with modern technologies.
+          These are the tools I&apos;ve been working with recently.
         </motion.p>
       </div>
 

@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section className="relative z-10 py-16 sm:py-24" id="work">
+    <section className="relative z-10 py-16 sm:py-24" id="projects">
       {/* Section header with animations */}
       <div className="space-y-4 mb-10">
         {/* Main heading - slides in from left */}
