@@ -19,7 +19,7 @@ export default function Navbar({ navItems }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-5 sm:px-10">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-xl font-bold">
-            YourName
+            SamBai
           </Link>
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (

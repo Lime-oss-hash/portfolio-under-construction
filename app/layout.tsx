@@ -6,8 +6,8 @@ import { ThemeProvider } from "./components/ThemeProvider";
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "YourName - Web Developer",
-  description: "Your description here",
+  title: "SamBai - Full Stack Developer",
+  description: "Full Stack Developer",
 };
 
 export default function RootLayout({
