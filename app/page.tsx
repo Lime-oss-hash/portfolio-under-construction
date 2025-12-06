@@ -1,7 +1,7 @@
 "use client";
 
 import { House, BriefcaseBusiness, UserRound, Contact } from "lucide-react";
-import Navbar from "@/app/components/ui/Navbar";
+import { Navbar } from "@/app/components/ui/Navbar";
 import Hero from "@/app/components/Hero";
 import Skills from "@/app/components/Skills";
 import Projects from "@/app/components/Projects";
