@@ -1,36 +1,335 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website Documentation
 
-## Getting Started
+A modern, animated portfolio website built with Next.js 16, Tailwind CSS v4, and Framer Motion.
 
-First, run the development server:
+---
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Technology    | Version | Purpose                         |
+| ------------- | ------- | ------------------------------- |
+| Next.js       | 16.0.7  | React framework with App Router |
+| React         | 19.2.0  | UI library                      |
+| Tailwind CSS  | v4      | Utility-first CSS               |
+| Framer Motion | 12.x    | Animations                      |
+| TypeScript    | 5.x     | Type safety                     |
+| next-themes   | 0.4.6   | Dark mode                       |
+| lucide-react  | 0.556.0 | Icons                           |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+portfolio-2/
+├── app/
+│   ├── components/
+│   │   ├── ui/                    # Reusable UI components
+│   │   │   ├── Navbar.tsx         # Floating animated navbar
+│   │   │   ├── GradientButton.tsx # Button with animated gradient border
+│   │   │   ├── TechCard.tsx       # Technology/skill card
+│   │   │   └── ProjectCard.tsx    # Portfolio project card
+│   │   ├── Hero.tsx               # Hero section with animations
+│   │   ├── Skills.tsx             # Skills/technologies grid
+│   │   ├── Projects.tsx           # Projects showcase
+│   │   ├── Footer.tsx             # Footer with contact CTA
+│   │   └── ThemeProvider.tsx      # Dark mode provider
+│   ├── lib/
+│   │   ├── constants.ts           # All portfolio data
+│   │   └── utils.ts               # Utility functions (cn)
+│   ├── styles/
+│   │   └── global.css             # Tailwind v4 theme + global styles
+│   ├── layout.tsx                 # Root layout with SEO
+│   └── page.tsx                   # Homepage
+├── public/
+│   └── imgs/
+│       ├── logos/                 # Tech stack SVG icons
+│       └── projects/              # Project screenshots
+└── package.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Navbar (`components/ui/Navbar.tsx`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Floating, animated navigation bar.
+
+**Features:**
+
+- Centers as a pill-shaped container
+- Hides when scrolling down, shows when scrolling up
+- Icons on mobile, text labels on desktop
+- Uses Framer Motion for smooth animations
+
+**Props:**
+
+```typescript
+interface NavItem {
+  name: string;    // Display text
+  link: string;    // Anchor link (#home, #work, etc.)
+  icon?: JSX.Element; // Lucide icon
+}
+
+navItems: NavItem[]
+```
+
+---
+
+### Hero (`components/Hero.tsx`)
+
+Main landing section with animated entrance.
+
+**Elements:**
+
+- Location badge ("Based In New Zealand")
+- Two-line heading with gradient accent
+- Description paragraph
+- Gradient CTA button (Download CV)
+- Scroll indicator animation
+
+**Customization:**
+
+- Edit location in the badge
+- Change heading text (lines 39-46)
+- Update description (lines 51-58)
+- Change CV link path (line 69)
+
+---
+
+### GradientButton (`components/ui/GradientButton.tsx`)
+
+Button with animated rotating gradient border.
+
+**Props:**
+
+```typescript
+children: ReactNode  // Button content
+className?: string   // Additional classes
+onClick?: () => void // Click handler
+```
+
+**How it works:** Uses a `conic-gradient` background with `animate-shimmer` to create the rotating border effect.
+
+---
+
+### TechCard (`components/ui/TechCard.tsx`)
+
+Displays a single technology/skill.
+
+**Props:**
+
+```typescript
+cardInfo: {
+  name: string; // "React"
+  description: string; // "JavaScript Library"
+  imageUrl: string; // "/imgs/logos/react.svg"
+  bgColor: string; // "bg-[#61DAFB]/20"
+}
+```
+
+---
+
+### ProjectCard (`components/ui/ProjectCard.tsx`)
+
+Displays a portfolio project with image and details.
+
+**Props:**
+
+```typescript
+project: {
+  id: string;
+  heading: string;      // Project name
+  subheading: string;   // Category
+  description: string;
+  imageUrl: string;     // Screenshot path
+  techStack: string[];  // ["Next.js", "TypeScript"]
+  liveUrl?: string;     // Live demo URL
+  githubUrl?: string;   // GitHub repo URL
+}
+```
+
+---
+
+## Customization Guide
+
+### 1. Update Personal Information
+
+Edit `app/lib/constants.ts`:
+
+```typescript
+// Your tech stack
+export const techCardsItems = [
+  {
+    name: "React",
+    description: "JavaScript Library",
+    imageUrl: "/imgs/logos/react.svg",
+    bgColor: "bg-[#61DAFB]/20",
+  },
+  // Add more...
+];
+
+// Your projects
+export const portfolioProjects = [
+  {
+    id: "project-1",
+    heading: "Your Project",
+    subheading: "Category",
+    description: "Description...",
+    imageUrl: "/imgs/projects/project.png",
+    techStack: ["Tech1", "Tech2"],
+    liveUrl: "https://...",
+    githubUrl: "https://github.com/...",
+  },
+];
+
+// Your social links
+export const socialLinks = [
+  { label: "GitHub", href: "https://github.com/yourusername" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
+];
+```
+
+### 2. Update SEO Metadata
+
+Edit `app/layout.tsx`:
+
+```typescript
+export const metadata: Metadata = {
+  title: {
+    template: "Your Name - %s",
+    default: "Your Name - Your Title",
+  },
+  description: "Your description...",
+  // ...
+};
+```
+
+### 3. Update Email
+
+Edit `app/components/Footer.tsx` line 34:
+
+```typescript
+href = "mailto:your@email.com";
+```
+
+### 4. Add Logo Images
+
+Place SVG files in `public/imgs/logos/`:
+
+- Get icons from [simpleicons.org](https://simpleicons.org) or [devicon.dev](https://devicon.dev)
+
+### 5. Add Project Screenshots
+
+Place images in `public/imgs/projects/`:
+
+- Recommended size: 1200x800px
+- Format: PNG or WebP
+
+---
+
+## Theme Configuration
+
+Tailwind v4 theme is in `app/styles/global.css`:
+
+```css
+@theme {
+  /* Change primary accent color */
+  --color-primary: #3b82f6;
+
+  /* Dark mode colors */
+  --color-dark-100: #0a0a0a; /* Background */
+  --color-dark-200: #1a1a1a; /* Cards */
+  --color-dark-300: #262626; /* Hover */
+  --color-dark-400: #404040; /* Subtle borders */
+  --color-dark-700: #4d4d4d; /* Visible borders */
+}
+```
+
+---
+
+## Animations
+
+All animations use Framer Motion:
+
+| Animation           | Component             | Effect                        |
+| ------------------- | --------------------- | ----------------------------- |
+| Entrance fade       | Hero                  | Elements fade in with stagger |
+| Slide from left     | Skills, Projects      | Headings slide in             |
+| Fade from bottom    | TechCard, ProjectCard | Cards fade up                 |
+| Hide/show on scroll | Navbar                | Hides on scroll down          |
+| Shimmer             | GradientButton        | Rotating gradient             |
+| Bounce              | Hero scroll indicator | Infinite bounce               |
+
+---
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import in [vercel.com/new](https://vercel.com/new)
+3. Deploy with default settings
+
+### Other Platforms
+
+```bash
+# Build
+npm run build
+
+# The output is in .next/
+# Use npm run start for Node.js servers
+```
+
+---
+
+## File Reference
+
+| File           | Purpose                      |
+| -------------- | ---------------------------- |
+| `page.tsx`     | Homepage composition         |
+| `layout.tsx`   | Root layout + SEO            |
+| `global.css`   | Tailwind theme + base styles |
+| `constants.ts` | All portfolio data           |
+| `utils.ts`     | `cn()` class merge utility   |
+
+---
+
+## Troubleshooting
+
+### Styles not loading?
+
+- Ensure you're using Tailwind v4 syntax in `global.css`
+- Check that `@import "tailwindcss"` is at the top
+- Restart dev server after config changes
+
+### Images not showing?
+
+- Verify paths start with `/imgs/`
+- Check files exist in `public/imgs/`
+- For external images, add domain to `next.config.ts`
+
+### Animations not working?
+
+- Ensure `framer-motion` is installed
+- Check `"use client"` is at top of component
+- Verify `viewport={{ once: true }}` for scroll triggers
