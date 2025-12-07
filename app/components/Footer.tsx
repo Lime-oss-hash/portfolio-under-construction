@@ -1,10 +1,10 @@
 "use client";
 
-// Footer Section - Contact CTA and multi-column navigation
+// Footer Section - Multi-column navigation and copyright
 // Features:
-// - Large contact CTA heading with animated email link
-// - Three-column layout (Navigate, Projects, Socials)
+// - Clean multi-column layout (Brand, Navigate, Projects, Socials)
 // - Dark theme styling with consistent design
+// Note: CTA has been moved to dedicated ContactCTA component
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -18,45 +18,25 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="relative z-10 py-16 sm:py-24">
-      {/* Large CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mb-10 sm:mb-16"
-      >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-stone-200 leading-tight">
-          Like what you see? <br className="hidden sm:block" />
-          Reach out{" "}
-          <a
-            href="mailto:sam2319667268@gmail.com"
-            className="text-primary hover:underline underline-offset-4 transition-all"
-          >
-            via email
-          </a>{" "}
-          to collaborate!
-        </h2>
-      </motion.div>
-
-      {/* Divider */}
-      <div className="h-px bg-dark-700 mb-12" />
-
+    <footer className="relative z-10 py-12 sm:py-16 border-t border-dark-700">
       {/* Footer content - multi-column layout */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8"
       >
         {/* Brand column */}
-        <div>
-          <h3 className="text-xl font-bold text-stone-200 mb-4">Sam Bai</h3>
-          <p className="text-sm text-stone-400">
-            © {currentYear} | All rights reserved.
-          </p>
+        <div className="col-span-2 sm:col-span-1">
+          <h3 className="text-xl font-bold text-stone-200 mb-2">Sam Bai</h3>
+          <p className="text-sm text-stone-400 mb-2">Full-Stack Developer</p>
+          <a
+            href="mailto:sam2319667268@gmail.com"
+            className="text-sm text-primary hover:underline underline-offset-2"
+          >
+            sam2319667268@gmail.com
+          </a>
         </div>
 
         {/* Navigate column */}
@@ -69,7 +49,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-stone-300 hover:text-primary transition-colors"
+                  className="text-stone-300 hover:text-primary transition-colors text-sm"
                 >
                   {link.label}
                 </Link>
@@ -86,9 +66,12 @@ export default function Footer() {
           <ul className="space-y-2">
             {portfolioProjects.map((project) => (
               <li key={project.id}>
-                <span className="text-stone-300 hover:text-primary transition-colors cursor-pointer">
+                <Link
+                  href="#projects"
+                  className="text-stone-300 hover:text-primary transition-colors text-sm"
+                >
                   {project.heading}
-                </span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -97,7 +80,7 @@ export default function Footer() {
         {/* Socials column */}
         <div>
           <h4 className="text-sm font-semibold text-stone-400 uppercase tracking-wider mb-4">
-            Socials
+            Connect
           </h4>
           <ul className="space-y-2">
             {socialLinks.map((link) => (
@@ -106,7 +89,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-300 hover:text-primary transition-colors"
+                  className="text-stone-300 hover:text-primary transition-colors text-sm"
                 >
                   {link.label}
                 </Link>
@@ -115,6 +98,13 @@ export default function Footer() {
           </ul>
         </div>
       </motion.div>
+
+      {/* Copyright */}
+      <div className="mt-12 pt-6 border-t border-dark-700 text-center">
+        <p className="text-sm text-stone-500">
+          © {currentYear} Sam Bai. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }

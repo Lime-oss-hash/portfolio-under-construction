@@ -1,10 +1,9 @@
 "use client";
 
-// Projects Section - Displays portfolio projects with animations
+// Projects Section - Enhanced portfolio display with recruiter-friendly features
 // Features:
-// - Animated heading
-// - Responsive grid of ProjectCard components
-// - Framer Motion entrance animations
+// - Animated heading and description
+// - Responsive grid (1 col mobile, 2 cols desktop with featured spanning full width)
 
 import { portfolioProjects } from "@/app/lib/constants";
 import ProjectCard from "./ui/ProjectCard";
@@ -14,7 +13,7 @@ export default function Projects() {
   return (
     <section className="relative z-10 py-16 sm:py-24" id="projects">
       {/* Section header with animations */}
-      <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+      <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12">
         {/* Main heading - slides in from left */}
         <motion.h2
           initial={{ opacity: 0, x: -75 }}
@@ -26,21 +25,20 @@ export default function Projects() {
           My Portfolio
         </motion.h2>
 
-        {/* Description */}
+        {/* Description - professional tone */}
         <motion.p
           initial={{ opacity: 0, x: -90 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-sm min-[430px]:text-base max-w-lg md:max-w-3xl text-stone-400"
+          className="text-sm min-[430px]:text-base max-w-lg md:max-w-2xl text-stone-400 leading-relaxed"
         >
-          A collection of projects I&apos;ve built while learning and exploring
-          different technologies. Each one taught me something new and helped me
-          grow as a developer.
+          Production-ready projects showcasing full-stack capabilities—from
+          intuitive UIs to robust backend architectures.
         </motion.p>
       </div>
 
-      {/* Projects grid - fades in from bottom */}
+      {/* Projects grid - responsive with featured project spanning full width */}
       <motion.div
         initial={{ opacity: 0, y: 75 }}
         whileInView={{ opacity: 1, y: 0 }}
