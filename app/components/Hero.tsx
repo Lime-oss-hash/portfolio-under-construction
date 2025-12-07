@@ -81,18 +81,54 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-10"
+        className="mt-10 flex flex-col sm:flex-row items-center gap-4"
       >
-        <GradientButton>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2"
+        {/* See My Work button - outlined style */}
+        <a
+          href="#projects"
+          className="flex items-center gap-2 px-6 py-3 rounded-lg bg-dark-200 border border-dark-700 text-stone-200 text-sm font-medium hover:border-primary/50 hover:bg-dark-300 transition-all duration-300"
+        >
+          See My Work
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            Download CV
-          </a>
-        </GradientButton>
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+
+        {/* Download CV - text link style with icon */}
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-stone-300 hover:text-primary transition-colors duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" x2="12" y1="15" y2="3" />
+          </svg>
+          <span className="font-medium">Download CV</span>
+        </a>
       </motion.div>
 
       {/* Optional: Scroll indicator */}
