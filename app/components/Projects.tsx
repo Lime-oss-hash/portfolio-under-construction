@@ -34,8 +34,9 @@ export default function Projects() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="text-sm min-[430px]:text-base max-w-lg md:max-w-3xl text-stone-400"
         >
-          Here are some of my recent projects. Each one was built to solve real
-          problems and showcase different skills.
+          A collection of projects I&apos;ve built while learning and exploring
+          different technologies. Each one taught me something new and helped me
+          grow as a developer.
         </motion.p>
       </div>
 

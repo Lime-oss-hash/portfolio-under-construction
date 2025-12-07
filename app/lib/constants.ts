@@ -63,7 +63,7 @@ export const portfolioProjects = [
       "A Trello-like task management application with drag-and-drop, real-time updates, and team collaboration features.",
     imageUrl: "/imgs/projects/taskflow.png",
     techStack: ["Next.js", "TypeScript", "Supabase", "Clerk", "PostgreSQL"],
-    liveUrl: "taskboard-nextjs.vercel.app/",
+    liveUrl: "https://taskboard-nextjs.vercel.app/",
     githubUrl: "https://github.com/Lime-oss-hash/taskflow-board",
   },
   {
@@ -72,9 +72,9 @@ export const portfolioProjects = [
     subheading: "Community Transport Platform",
     description:
       "A complete MERN-stack booking platform for a NZ non-profit charitable trust. Features user auth, real-time calendar with booking counts, driver schedule sync, and automated emails.",
-    imageUrl: "/imgs/projects/waka.png",
+    imageUrl: "/imgs/projects/wakawebsite.png",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Nodemailer"],
-    githubUrl: "https://github.com/Lime-oss-hash/WakaEasternBay-booking",
+    githubUrl: "https://github.com/Lime-oss-hash/Workingversion",
   },
   {
     id: "project-3",
