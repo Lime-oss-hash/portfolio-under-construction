@@ -25,7 +25,7 @@ export default function Skills() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.25 }}
-        className="text-3xl min-[430px]:text-4xl md:text-5xl font-bold text-stone-200"
+        className="text-2xl min-[430px]:text-3xl md:text-4xl font-bold text-stone-200"
       >
         Current Technologies
       </motion.h2>

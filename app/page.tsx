@@ -18,7 +18,7 @@ const navItems = [
 export default function Homepage() {
   return (
     <main className="flex flex-col px-5 sm:px-10 relative">
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full">
         <Navbar navItems={navItems} />
         <Hero />
         <Skills />

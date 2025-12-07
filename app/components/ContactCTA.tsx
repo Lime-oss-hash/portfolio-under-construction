@@ -14,7 +14,7 @@ import { Mail, Linkedin, ArrowRight } from "lucide-react";
 
 export default function ContactCTA() {
   return (
-    <section id="contact" className="relative z-10 py-16 sm:py-24">
+    <section id="contact" className="relative z-10 py-12 sm:py-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function ContactCTA() {
         className="max-w-2xl mx-auto text-center"
       >
         {/* Headline - confident and recruiter-focused */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-200 mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-200 mb-4">
           Ready to build something great?
         </h2>
 

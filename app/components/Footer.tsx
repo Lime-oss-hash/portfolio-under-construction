@@ -7,7 +7,7 @@ import { Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 py-16 sm:py-20 border-t border-dark-700">
+    <footer className="relative z-10 py-12 sm:py-14 border-t border-dark-700">
       <div className="flex flex-col items-center text-center space-y-4">
         {/* Line 1: Name · Role · Location */}
         <p className="text-sm sm:text-base text-stone-300">

@@ -45,7 +45,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center max-w-4xl leading-tight px-2"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center max-w-3xl leading-tight px-2"
       >
         {/* First line with gradient highlight */}
         <span className="text-stone-200">Building Modern </span>
