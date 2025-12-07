@@ -68,6 +68,16 @@ export const portfolioProjects = [
   },
   {
     id: "project-2",
+    heading: "Waka Eastern Bay",
+    subheading: "Community Transport Platform",
+    description:
+      "A complete MERN-stack booking platform for a NZ non-profit charitable trust. Features user auth, real-time calendar with booking counts, driver schedule sync, and automated emails.",
+    imageUrl: "/imgs/projects/waka.png",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Nodemailer"],
+    githubUrl: "https://github.com/Lime-oss-hash/WakaEasternBay-booking",
+  },
+  {
+    id: "project-3",
     heading: "DevPortfolio",
     subheading: "Portfolio Website",
     description:
