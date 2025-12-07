@@ -25,9 +25,9 @@ export default function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-16"
+        className="mb-10 sm:mb-16"
       >
-        <h2 className="text-3xl min-[430px]:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-200 leading-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-stone-200 leading-tight">
           Like what you see? <br className="hidden sm:block" />
           Reach out{" "}
           <a

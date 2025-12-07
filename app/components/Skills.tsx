@@ -14,7 +14,7 @@ export default function Skills() {
   return (
     <section className="relative z-10 py-16 sm:py-24" id="about">
       {/* Section header with animations */}
-      <div className="space-y-4 mb-10">
+      <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
         {/* Main heading - slides in from left */}
         <motion.h2
           initial={{ opacity: 0, x: -75 }}

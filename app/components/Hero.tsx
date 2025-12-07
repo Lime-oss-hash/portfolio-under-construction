@@ -4,55 +4,57 @@
 // - Location badge at top ("Based in New Zealand")
 // - Large animated heading with highlighted text
 // - Subtitle description
-// - Shimmer CTA button (Download CV)
+// - CTA buttons (See My Work + Download CV)
 // - Framer Motion entrance animations
 // - Grid background pattern
+// - Fully mobile responsive
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import GradientButton from "./ui/GradientButton";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-10 min-h-screen flex flex-col items-center justify-center py-20"
+      className="relative z-10 min-h-screen flex flex-col items-center justify-center py-16 sm:py-20 px-4"
     >
       {/* Grid background pattern */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 w-full h-full bg-grid grid-mask" />
       </div>
 
-      {/* Location Badge - Animated fade in from bottom */}
+      {/* Location Badge - Responsive: stacked on mobile, inline on larger screens */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex items-center gap-3 px-4 py-2 rounded-full bg-dark-200 border border-dark-700 mb-8"
+        className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-4 py-2 sm:py-2 rounded-2xl sm:rounded-full bg-dark-200 border border-dark-700 mb-6 sm:mb-8"
       >
         <div className="flex items-center gap-2">
           <MapPin className="w-4 h-4 text-primary" />
-          <span className="text-sm text-stone-100">Based In New Zealand</span>
+          <span className="text-xs sm:text-sm text-stone-100">
+            Based In New Zealand
+          </span>
         </div>
-        <span className="text-stone-600">|</span>
+        <span className="hidden sm:block text-stone-600">|</span>
         <div className="flex items-center gap-2">
           {/* Pulsing green dot */}
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span className="text-sm font-medium text-emerald-400">
+          <span className="text-xs sm:text-sm font-medium text-emerald-400">
             Open for Work
           </span>
         </div>
       </motion.div>
 
-      {/* Main Heading - Large animated title */}
+      {/* Main Heading - Responsive typography */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-4xl min-[430px]:text-5xl md:text-6xl lg:text-7xl font-bold text-center max-w-4xl leading-tight"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center max-w-4xl leading-tight px-2"
       >
         {/* First line with gradient highlight */}
         <span className="text-stone-200">Building Modern </span>
@@ -64,29 +66,29 @@ export default function Hero() {
         <span className="text-stone-200">Scalable Web Solutions</span>
       </motion.h1>
 
-      {/* Description Text */}
+      {/* Description Text - Better mobile padding */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-6 text-base md:text-lg text-stone-400 text-center max-w-2xl px-4"
+        className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-stone-400 text-center max-w-xl sm:max-w-2xl px-2"
       >
         Hi, I&apos;m <span className="text-primary font-medium">Sam Bai</span>,
         a graduate developer passionate about building clean, user-friendly web
         applications.
       </motion.p>
 
-      {/* CTA Button - Shimmer effect */}
+      {/* CTA Buttons - Stack on mobile, side by side on larger screens */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+        className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4"
       >
         {/* See My Work button - outlined style */}
         <a
           href="#projects"
-          className="flex items-center gap-2 px-6 py-3 rounded-lg bg-dark-200 border border-dark-700 text-stone-200 text-sm font-medium hover:border-primary/50 hover:bg-dark-300 transition-all duration-300"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-dark-200 border border-dark-700 text-stone-200 text-sm font-medium hover:border-primary/50 hover:bg-dark-300 transition-all duration-300"
         >
           See My Work
           <svg
@@ -113,8 +115,8 @@ export default function Hero() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -127,16 +129,16 @@ export default function Hero() {
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" x2="12" y1="15" y2="3" />
           </svg>
-          <span className="font-medium">Download CV</span>
+          <span className="font-medium text-sm sm:text-base">Download CV</span>
         </a>
       </motion.div>
 
-      {/* Optional: Scroll indicator */}
+      {/* Scroll indicator - hidden on very small screens */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

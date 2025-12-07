@@ -1,10 +1,12 @@
 "use client";
 
+// Navbar - Floating pill navigation
 // Features:
-// - Floating centered pill design (not full-width)
+// - Floating centered pill design
 // - Hides when scrolling down, shows when scrolling up
 // - Smooth framer-motion animations
 // - Shows icons on mobile, text on desktop
+// - Responsive padding and spacing
 
 import { cn } from "@/app/lib/utils";
 import {
@@ -59,7 +61,7 @@ export const Navbar = ({ navItems, className }: NavbarProps) => {
   return (
     // AnimatePresence enables exit animations when component unmounts
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.nav
         // Initial state: navbar starts above viewport (hidden)
         initial={{
           opacity: 1,
@@ -77,15 +79,15 @@ export const Navbar = ({ navItems, className }: NavbarProps) => {
         // Styling classes for the floating pill navbar
         className={cn(
           // Layout: centered, auto-width based on content
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto",
+          "flex max-w-fit fixed top-4 sm:top-10 inset-x-0 mx-auto",
           // Appearance: dark background with subtle border
-          "border border-dark-700 rounded-lg bg-dark-200",
+          "border border-dark-700 rounded-full sm:rounded-lg bg-dark-200/95 backdrop-blur-sm",
           // Shadow for depth effect
           "shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           // High z-index to stay above all content
           "z-[5000]",
-          // Padding and spacing
-          "px-8 py-4 items-center justify-center space-x-4",
+          // Responsive padding and spacing
+          "px-4 sm:px-8 py-3 sm:py-4 items-center justify-center gap-3 sm:gap-4",
           className
         )}
       >
@@ -96,18 +98,23 @@ export const Navbar = ({ navItems, className }: NavbarProps) => {
             href={navItem.link}
             className={cn(
               // Base styling: light text with flex layout
-              "relative text-neutral-50 items-center flex space-x-1",
-              // Hover effect: slightly dimmed text
-              "hover:text-neutral-300 transition-colors"
+              "relative text-neutral-50 items-center flex",
+              // Hover effect: changes to primary color
+              "hover:text-primary transition-colors duration-200",
+              // Focus state for accessibility
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
             )}
+            aria-label={navItem.name}
           >
             {/* Mobile: show only icon */}
             <span className="block sm:hidden">{navItem.icon}</span>
             {/* Desktop: show text label */}
-            <span className="hidden sm:block font-medium">{navItem.name}</span>
+            <span className="hidden sm:block text-sm font-medium">
+              {navItem.name}
+            </span>
           </Link>
         ))}
-      </motion.div>
+      </motion.nav>
     </AnimatePresence>
   );
 };
