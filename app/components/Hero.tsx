@@ -20,7 +20,7 @@ export default function Hero() {
     >
       {/* Grid background pattern */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 w-full h-full bg-grid grid-mask" />
+        <div className="absolute inset-0 w-full h-full bg-grid-animated grid-mask" />
       </div>
 
       {/* Location Badge - Small accent above main heading */}
