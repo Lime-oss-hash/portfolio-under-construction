@@ -5,28 +5,20 @@
 // - Large animated heading with highlighted text (WordReveal)
 // - Subtitle description
 // - CTA buttons (See My Work + Download CV)
-// - Grid background pattern (pauses when out of view for performance)
+// - Grid background pattern
 // - Fully mobile responsive
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { useInView } from "react-intersection-observer";
 import WordReveal from "./WordReveal";
 
 export default function Hero() {
-  // Only animate grid when Hero is visible (performance optimization)
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: false,
-  });
-
   return (
     <section
-      ref={ref}
       id="home"
       className="relative z-10 min-h-screen flex flex-col items-center justify-center pt-16 sm:pt-20 pb-28 sm:pb-36 px-4"
     >
-      {/* Grid background pattern - switches between animated/static based on visibility */}
+      {/* Grid background pattern */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 w-full h-full bg-grid grid-mask" />
       </div>
