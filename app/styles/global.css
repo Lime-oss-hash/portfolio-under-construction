@@ -26,6 +26,21 @@
       background-position: -200% 0;
     }
   }
+
+  /* Katana shine animation - slow diagonal sweep */
+  --animate-katana-shine: katana-shine 3s ease-in-out infinite;
+
+  @keyframes katana-shine {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 150%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
 }
 
 /* ============================================

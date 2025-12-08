@@ -76,11 +76,13 @@ export default function Hero() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center gap-3"
       >
-        {/* See My Work button - outlined style */}
+        {/* See My Work button - with katana shine effect on hover */}
         <a
           href="#projects"
-          className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-dark-200 border border-dark-700 text-stone-200 text-sm font-medium hover:border-primary/50 hover:bg-dark-300 transition-all duration-300"
+          className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-dark-200 border border-dark-700 text-stone-200 text-sm font-medium hover:border-stone-400 hover:bg-dark-300 transition-all duration-300 overflow-hidden"
         >
+          {/* Katana shine overlay - triggers on hover */}
+          <span className="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[150%] transition-[left] duration-700 ease-in-out z-10 pointer-events-none" />
           See My Work
           <svg
             xmlns="http://www.w3.org/2000/svg"
