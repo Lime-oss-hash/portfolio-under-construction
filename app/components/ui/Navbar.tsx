@@ -1,22 +1,16 @@
 "use client";
 
-// Navbar - Floating pill navigation
+// Navbar - Floating pill navigation (Performance Optimized)
 // Features:
 // - Floating centered pill design
 // - Hides when scrolling down, shows when scrolling up
-// - Smooth framer-motion animations
+// - OPTIMIZED: Only updates state when visibility actually changes
 // - Shows icons on mobile, text on desktop
-// - Responsive padding and spacing
 
 import { cn } from "@/app/lib/utils";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { JSX, useState } from "react";
+import { JSX, useState, useEffect, useRef } from "react";
 
 // TypeScript interface for navigation items
 interface NavItem {
@@ -31,32 +25,44 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ navItems, className }: NavbarProps) => {
-  // Hook to track scroll position (0 to 1, where 1 = bottom of page)
-  const { scrollYProgress } = useScroll();
-
   // State to control navbar visibility
   const [visible, setVisible] = useState(true);
 
-  // Listen to scroll changes and show/hide navbar
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Safety check: ensure we have a valid number
-    if (typeof current === "number") {
-      // Calculate scroll direction by comparing current vs previous position
-      const direction = current - scrollYProgress.getPrevious()!;
+  // Refs to track scroll position without causing re-renders
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
-      // RULE 1: Always show navbar when near the top of page (< 5% scrolled)
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(true);
-      } else {
-        // RULE 2: Show when scrolling UP (direction < 0), hide when scrolling DOWN
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+  useEffect(() => {
+    const handleScroll = () => {
+      // Use requestAnimationFrame to throttle scroll handling
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          // Near top of page - always show
+          if (currentScrollY < 50) {
+            setVisible(true);
+          } else {
+            // Only update if direction changed
+            const isScrollingDown = currentScrollY > lastScrollY.current;
+            setVisible(!isScrollingDown);
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking.current = false;
+        });
+
+        ticking.current = true;
       }
-    }
-  });
+    };
+
+    // Use passive listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     // AnimatePresence enables exit animations when component unmounts

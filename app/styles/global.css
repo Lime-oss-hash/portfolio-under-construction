@@ -103,7 +103,7 @@
     background-size: 32px 32px;
   }
 
-  /* Animated grid with slow drift */
+  /* Animated grid with slow drift - GPU accelerated */
   .bg-grid-animated {
     background-image: linear-gradient(
         to right,
@@ -113,6 +113,9 @@
       linear-gradient(to bottom, rgba(79, 79, 79, 0.18) 1px, transparent 1px);
     background-size: 32px 32px;
     animation: grid-drift 18s linear infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   /* Radial gradient mask for fading grid edges */
@@ -123,6 +126,7 @@
       black 20%,
       transparent 80%
     );
+    transform: translateZ(0);
   }
 }
 

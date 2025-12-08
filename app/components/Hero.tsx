@@ -2,25 +2,37 @@
 
 // Features:
 // - Location badge at top ("Based in New Zealand")
-// - Large animated heading with highlighted text
+// - Large animated heading with highlighted text (WordReveal)
 // - Subtitle description
 // - CTA buttons (See My Work + Download CV)
-// - Framer Motion entrance animations
-// - Grid background pattern
+// - Grid background pattern (pauses when out of view for performance)
 // - Fully mobile responsive
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import WordReveal from "./WordReveal";
 
 export default function Hero() {
+  // Only animate grid when Hero is visible (performance optimization)
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+  });
+
   return (
     <section
+      ref={ref}
       id="home"
       className="relative z-10 min-h-screen flex flex-col items-center justify-center py-16 sm:py-20 px-4"
     >
-      {/* Grid background pattern */}
+      {/* Grid background pattern - switches between animated/static based on visibility */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 w-full h-full bg-grid-animated grid-mask" />
+        <div
+          className={`absolute inset-0 w-full h-full ${
+            inView ? "bg-grid-animated" : "bg-grid"
+          } grid-mask`}
+        />
       </div>
 
       {/* Location Badge - Small accent above main heading */}
@@ -40,22 +52,11 @@ export default function Hero() {
         <span className="text-emerald-400">Open for Work</span>
       </motion.div>
 
-      {/* Main Heading - Responsive typography */}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+      {/* Main Heading - Word reveal animation */}
+      <WordReveal
+        words="Building Modern & Scalable Web Solutions"
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center max-w-3xl leading-tight px-2"
-      >
-        {/* First line with gradient highlight */}
-        <span className="text-stone-200">Building Modern </span>
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
-          &amp;
-        </span>
-        <br />
-        {/* Second line */}
-        <span className="text-stone-200">Scalable Web Solutions</span>
-      </motion.h1>
+      />
 
       {/* Value Statement - Short one-liner */}
       <motion.p
