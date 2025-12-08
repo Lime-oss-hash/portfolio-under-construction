@@ -90,7 +90,7 @@ export const portfolioProjects = [
     role: "Full-stack developer for non-profit client",
     imageUrl: "/imgs/projects/wakawebsite.png",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Nodemailer"],
-    githubUrl: "https://github.com/Lime-oss-hash/Workingversion",
+    githubUrl: "https://github.com/Lime-oss-hash/frontend123",
     featured: false,
   },
   {
