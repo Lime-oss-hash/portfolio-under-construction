@@ -79,12 +79,6 @@ export default function WordReveal({
                 ? "text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400"
                 : "text-stone-100"
             }`}
-            style={{
-              willChange: "transform, opacity, filter",
-              textShadow: isHighlighted
-                ? "0 0 20px rgba(59, 130, 246, 0.25)"
-                : undefined,
-            }}
           >
             {word}
           </motion.span>

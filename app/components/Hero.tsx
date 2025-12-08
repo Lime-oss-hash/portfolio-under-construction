@@ -24,7 +24,7 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative z-10 min-h-screen flex flex-col items-center justify-center py-16 sm:py-20 px-4"
+      className="relative z-10 min-h-screen flex flex-col items-center justify-center pt-16 sm:pt-20 pb-28 sm:pb-36 px-4"
     >
       {/* Grid background pattern - switches between animated/static based on visibility */}
       <div className="absolute inset-0 -z-10">
