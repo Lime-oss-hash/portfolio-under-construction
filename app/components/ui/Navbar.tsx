@@ -87,7 +87,8 @@ export const Navbar = ({ navItems, className }: NavbarProps) => {
           // Layout: centered, auto-width based on content
           "flex max-w-fit fixed top-4 sm:top-10 inset-x-0 mx-auto",
           // Appearance: dark background with subtle border
-          "border border-dark-700 rounded-full sm:rounded-lg bg-dark-200/95 backdrop-blur-sm",
+          // PERF FIX: Removed backdrop-blur-sm, using opaque bg to avoid scroll compositing
+          "border border-dark-700 rounded-full sm:rounded-lg bg-dark-200",
           // Shadow for depth effect
           "shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           // High z-index to stay above all content

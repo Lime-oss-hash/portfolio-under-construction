@@ -49,9 +49,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           "md:col-span-2 ring-1 ring-primary/20 shadow-lg shadow-primary/5"
       )}
     >
-      {/* Featured badge */}
+      {/* Featured badge - PERF FIX: Removed backdrop-blur-sm, using solid bg */}
       {featured && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-sm text-white text-xs font-medium">
+        <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-white text-xs font-medium">
           <Star className="w-3 h-3 fill-current" />
           Featured
         </div>

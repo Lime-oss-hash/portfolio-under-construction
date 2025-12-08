@@ -28,11 +28,7 @@ export default function Hero() {
     >
       {/* Grid background pattern - switches between animated/static based on visibility */}
       <div className="absolute inset-0 -z-10">
-        <div
-          className={`absolute inset-0 w-full h-full ${
-            inView ? "bg-grid-animated" : "bg-grid"
-          } grid-mask`}
-        />
+        <div className="absolute inset-0 w-full h-full bg-grid grid-mask" />
       </div>
 
       {/* Location Badge - Small accent above main heading */}

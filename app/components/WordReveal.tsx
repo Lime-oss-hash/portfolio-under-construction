@@ -12,14 +12,12 @@ import { motion, Variants } from "framer-motion";
 interface WordRevealProps {
   words: string;
   className?: string;
-  filter?: boolean;
   duration?: number;
 }
 
 export default function WordReveal({
   words,
   className = "",
-  filter = true,
   duration = 0.6,
 }: WordRevealProps) {
   // Split the input text into individual words
@@ -37,19 +35,17 @@ export default function WordReveal({
     },
   };
 
-  // Individual word animation - optimized for GPU (no rotateX/perspective)
+  // Individual word animation - optimized for GPU (no filter animations)
   const wordVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 30,
       scale: 0.9,
-      filter: filter ? "blur(8px)" : "blur(0px)",
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: "blur(0px)",
       transition: {
         type: "spring",
         damping: 15,

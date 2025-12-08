@@ -41,11 +41,11 @@ export default function GradientButton({
 
       {/* Inner content area */}
       <span
+        // PERF FIX: Removed backdrop-blur-3xl - expensive and unnecessary on opaque bg
         className={cn(
           "inline-flex h-full w-full cursor-pointer items-center justify-center",
           "rounded-lg bg-dark-200 px-6 py-2",
           "text-sm font-medium text-stone-200",
-          "backdrop-blur-3xl",
           "hover:bg-dark-300 transition-colors"
         )}
       >

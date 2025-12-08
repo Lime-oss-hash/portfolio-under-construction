@@ -24,17 +24,17 @@ const cardVariants: Variants = {
   },
 };
 
-// Animation variants for each tech row - with glow effect
+// Animation variants for each tech row
+// PERF FIX: Removed filter: brightness() - not GPU-accelerated, causes repaints
+// Using opacity alone achieves similar visual effect with hardware acceleration
 const techRowVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -15,
-    filter: "brightness(0.5)",
   },
   visible: {
     opacity: 1,
     x: 0,
-    filter: "brightness(1)",
     transition: {
       type: "spring",
       stiffness: 100,
