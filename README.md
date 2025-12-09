@@ -44,16 +44,19 @@ portfolio-2/
 │   ├── components/
 │   │   ├── ui/                    # Reusable UI components
 │   │   │   ├── Navbar.tsx         # Floating animated navbar
-│   │   │   ├── GradientButton.tsx # Button with animated gradient border
-│   │   │   ├── TechCard.tsx       # Technology/skill card
 │   │   │   └── ProjectCard.tsx    # Portfolio project card
 │   │   ├── Hero.tsx               # Hero section with animations
 │   │   ├── Skills.tsx             # Skills/technologies grid
 │   │   ├── Projects.tsx           # Projects showcase
-│   │   ├── Footer.tsx             # Footer with contact CTA
+│   │   ├── ContactCTA.tsx         # Contact call-to-action
+│   │   ├── Footer.tsx             # Footer with social links
+│   │   ├── WordReveal.tsx         # Word-by-word text animation
 │   │   └── ThemeProvider.tsx      # Dark mode provider
+│   ├── hooks/
+│   │   └── useScrollAnimation.ts  # Scroll-triggered animation hook
 │   ├── lib/
 │   │   ├── constants.ts           # All portfolio data
+│   │   ├── types.ts               # TypeScript interfaces
 │   │   └── utils.ts               # Utility functions (cn)
 │   ├── styles/
 │   │   └── global.css             # Tailwind v4 theme + global styles
@@ -116,39 +119,6 @@ Main landing section with animated entrance.
 
 ---
 
-### GradientButton (`components/ui/GradientButton.tsx`)
-
-Button with animated rotating gradient border.
-
-**Props:**
-
-```typescript
-children: ReactNode  // Button content
-className?: string   // Additional classes
-onClick?: () => void // Click handler
-```
-
-**How it works:** Uses a `conic-gradient` background with `animate-shimmer` to create the rotating border effect.
-
----
-
-### TechCard (`components/ui/TechCard.tsx`)
-
-Displays a single technology/skill.
-
-**Props:**
-
-```typescript
-cardInfo: {
-  name: string; // "React"
-  description: string; // "JavaScript Library"
-  imageUrl: string; // "/imgs/logos/react.svg"
-  bgColor: string; // "bg-[#61DAFB]/20"
-}
-```
-
----
-
 ### ProjectCard (`components/ui/ProjectCard.tsx`)
 
 Displays a portfolio project with image and details.
@@ -159,12 +129,44 @@ Displays a portfolio project with image and details.
 project: {
   id: string;
   heading: string;      // Project name
-  subheading: string;   // Category
-  description: string;
+  subheading: string;   // Category/type
+  valueProp: string;    // One-line value proposition
+  highlights: string[]; // Key achievements (optional)
+  role: string;         // Your role
   imageUrl: string;     // Screenshot path
   techStack: string[];  // ["Next.js", "TypeScript"]
   liveUrl?: string;     // Live demo URL
   githubUrl?: string;   // GitHub repo URL
+  featured?: boolean;   // Highlight as featured project
+}
+```
+
+---
+
+### useScrollAnimation (`hooks/useScrollAnimation.ts`)
+
+Custom hook for scroll-triggered CSS animations.
+
+**Features:**
+
+- Observes each `.animate-on-scroll` child element directly
+- Adds `in-view` class when element enters viewport
+- Auto-unobserves after animation triggers
+- One-time `querySelectorAll` on mount for performance
+
+**Usage:**
+
+```tsx
+import { useScrollAnimation } from "@/app/hooks/useScrollAnimation";
+
+function MySection() {
+  const sectionRef = useScrollAnimation();
+  return (
+    <section ref={sectionRef}>
+      <h2 className="animate-on-scroll">Title</h2>
+      <p className="animate-on-scroll animate-delay-1">Text</p>
+    </section>
+  );
 }
 ```
 
@@ -177,13 +179,13 @@ project: {
 Edit `app/lib/constants.ts`:
 
 ```typescript
-// Your tech stack
-export const techCardsItems = [
+// Your tech stack (organized by category)
+export const techCardsItems: TechCard[] = [
   {
     name: "React",
-    description: "JavaScript Library",
     imageUrl: "/imgs/logos/react.svg",
     bgColor: "bg-[#61DAFB]/20",
+    category: "Frontend",
   },
   // Add more...
 ];
@@ -194,18 +196,15 @@ export const portfolioProjects = [
     id: "project-1",
     heading: "Your Project",
     subheading: "Category",
-    description: "Description...",
+    valueProp: "One-line value proposition...",
+    highlights: [],
+    role: "Your role",
     imageUrl: "/imgs/projects/project.png",
     techStack: ["Tech1", "Tech2"],
     liveUrl: "https://...",
     githubUrl: "https://github.com/...",
+    featured: true,
   },
-];
-
-// Your social links
-export const socialLinks = [
-  { label: "GitHub", href: "https://github.com/yourusername" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
 ];
 ```
 
@@ -269,16 +268,21 @@ Tailwind v4 theme is in `app/styles/global.css`:
 
 ## Animations
 
-All animations use Framer Motion:
+The portfolio uses a mix of Framer Motion and CSS-based animations:
 
-| Animation           | Component             | Effect                        |
-| ------------------- | --------------------- | ----------------------------- |
-| Entrance fade       | Hero                  | Elements fade in with stagger |
-| Slide from left     | Skills, Projects      | Headings slide in             |
-| Fade from bottom    | TechCard, ProjectCard | Cards fade up                 |
-| Hide/show on scroll | Navbar                | Hides on scroll down          |
-| Shimmer             | GradientButton        | Rotating gradient             |
-| Bounce              | Hero scroll indicator | Infinite bounce               |
+| Animation           | Component             | Effect                     |
+| ------------------- | --------------------- | -------------------------- |
+| Word reveal         | Hero (WordReveal)     | Words fade in with stagger |
+| Scroll fade-in      | Skills, Projects, CTA | Elements fade up on scroll |
+| Hide/show on scroll | Navbar                | Hides on scroll down       |
+| Katana shine        | Hero CTA button       | Hover shine effect         |
+| Bounce              | Hero scroll indicator | Infinite bounce            |
+
+**CSS Animation Classes** (in `global.css`):
+
+- `.animate-on-scroll` - Base class for scroll-triggered animations
+- `.in-view` - Added by `useScrollAnimation` hook when visible
+- `.animate-delay-1` to `.animate-delay-5` - Staggered delays
 
 ---
 
