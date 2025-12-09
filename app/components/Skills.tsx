@@ -88,7 +88,7 @@ export default function Skills() {
                       width={40}
                       height={40}
                       loading="eager"
-                      className="w-8 h-8 md:w-10 md:h-10 invert brightness-0 invert"
+                      className="w-8 h-8 md:w-10 md:h-10 brightness-0 invert"
                     />
                   </div>
 
