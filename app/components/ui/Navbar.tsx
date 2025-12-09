@@ -11,14 +11,21 @@ import { cn } from "@/app/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import type { NavItem } from "@/app/lib/types";
+import { House, BriefcaseBusiness, UserRound, Contact } from "lucide-react";
+
+// Navigation items defined here since this is a client component
+const navItems = [
+  { name: "Home", link: "#home", icon: <House /> },
+  { name: "Projects", link: "#projects", icon: <BriefcaseBusiness /> },
+  { name: "About", link: "#about", icon: <UserRound /> },
+  { name: "Contact", link: "#contact", icon: <Contact /> },
+];
 
 interface NavbarProps {
-  navItems: NavItem[];
   className?: string;
 }
 
-export const Navbar = ({ navItems, className }: NavbarProps) => {
+export const Navbar = ({ className }: NavbarProps) => {
   // State to control navbar visibility
   const [visible, setVisible] = useState(true);
 

@@ -1,30 +1,46 @@
+// ContactCTA - Professional call-to-action section for hiring managers
+// Uses CSS-based scroll animation for zero client JS
+
 "use client";
 
-// ContactCTA - Professional call-to-action section for hiring managers
-// Features:
-// - Strong, confident headline
-// - Concise value proposition
-// - Primary (Email) and Secondary (LinkedIn) action buttons
-// - Responsive: stacked on mobile, side-by-side on desktop
-// - Clean, centered layout
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, Linkedin, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export default function ContactCTA() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Lightweight intersection observer to trigger CSS animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target
+              .querySelectorAll(".animate-on-scroll")
+              .forEach((el) => {
+                el.classList.add("in-view");
+              });
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "-50px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="relative z-10 py-12 sm:py-16 border-t border-dark-700/50"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="max-w-2xl mx-auto text-center"
-      >
+      <div className="animate-on-scroll max-w-2xl mx-auto text-center">
         {/* Headline - confident and recruiter-focused */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-200 mb-4">
           Ready to build something great?
@@ -59,7 +75,7 @@ export default function ContactCTA() {
             View LinkedIn
           </Link>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

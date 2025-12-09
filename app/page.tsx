@@ -1,26 +1,15 @@
-"use client";
-
-import { House, BriefcaseBusiness, UserRound, Contact } from "lucide-react";
 import { Navbar } from "@/app/components/ui/Navbar";
 import Hero from "@/app/components/Hero";
 import Skills from "@/app/components/Skills";
 import Projects from "@/app/components/Projects";
 import ContactCTA from "@/app/components/ContactCTA";
 import Footer from "@/app/components/Footer";
-import type { NavItem } from "@/app/lib/types";
-
-const navItems: NavItem[] = [
-  { name: "Home", link: "#home", icon: <House /> },
-  { name: "Projects", link: "#projects", icon: <BriefcaseBusiness /> },
-  { name: "About", link: "#about", icon: <UserRound /> },
-  { name: "Contact", link: "#contact", icon: <Contact /> },
-];
 
 export default function Homepage() {
   return (
     <main className="flex flex-col px-5 sm:px-10 relative">
       <div className="max-w-6xl mx-auto w-full">
-        <Navbar navItems={navItems} />
+        <Navbar />
         <Hero />
         <Skills />
         <Projects />

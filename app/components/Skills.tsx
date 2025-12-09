@@ -87,7 +87,7 @@ export default function Skills() {
                       alt={tech.name}
                       width={40}
                       height={40}
-                      loading="eager"
+                      loading="lazy"
                       className="w-8 h-8 md:w-10 md:h-10 brightness-0 invert"
                     />
                   </div>

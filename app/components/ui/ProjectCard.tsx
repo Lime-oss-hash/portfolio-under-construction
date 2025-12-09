@@ -1,7 +1,5 @@
-"use client";
-
 // ProjectCard - Portfolio project card with balanced sizing
-// Compact but impactful, with visual presence
+// Now a Server Component for better performance (no client JS needed)
 
 import { cn } from "@/app/lib/utils";
 import { ExternalLink, Github, Star } from "lucide-react";
