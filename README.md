@@ -253,7 +253,7 @@ Tailwind v4 theme is in `app/styles/global.css`:
 ```css
 @theme {
   /* Change primary accent color */
-  --color-primary: #3b82f6;
+  --color-primary: #10b981;
 
   /* Dark mode colors */
   --color-dark-100: #0a0a0a; /* Background */

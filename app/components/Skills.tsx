@@ -54,7 +54,7 @@ export default function Skills() {
                 <div key={tech.name} className="flex items-center gap-3 group">
                   {/* Icon with glow effect on hover */}
                   <div
-                    className={`${tech.bgColor} p-1.5 rounded-lg transition-shadow duration-300 group-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)]`}
+                    className={`${tech.bgColor} p-1.5 rounded-lg transition-shadow duration-300 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.4)]`}
                   >
                     <Image
                       src={tech.imageUrl}

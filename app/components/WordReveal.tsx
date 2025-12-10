@@ -72,7 +72,7 @@ export default function WordReveal({
             variants={wordVariants}
             className={`inline-block mr-[0.25em] ${
               isHighlighted
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400"
+                ? "text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400"
                 : "text-stone-100"
             }`}
           >

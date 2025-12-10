@@ -6,7 +6,7 @@
 
 @theme {
   /* Primary accent color */
-  --color-primary: #3b82f6;
+  --color-primary: #10b981;
 
   /* Dark mode color palette */
   --color-dark-100: #0a0a0a;
@@ -64,7 +64,7 @@
 
   /* Selection styling */
   ::selection {
-    background-color: rgb(59 130 246 / 0.3);
+    background-color: rgb(16 185 129 / 0.3);
     color: white;
   }
 }
@@ -76,7 +76,7 @@
 @layer utilities {
   /* Text gradient utility for special headings */
   .text-gradient {
-    background-image: linear-gradient(to right, var(--color-primary), #60a5fa);
+    background-image: linear-gradient(to right, var(--color-primary), #34d399);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
