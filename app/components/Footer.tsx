@@ -23,10 +23,10 @@ export default function Footer() {
           Open to graduate & junior full-stack roles
           <span className="text-stone-600 mx-2">·</span>
           <a
-            href="mailto:sam2319667268@gmail.com"
+            href="mailto:sambai.codes@gmail.com"
             className="text-primary hover:underline underline-offset-2"
           >
-            sam2319667268@gmail.com
+            sambai.codes@gmail.com
           </a>
         </p>
 

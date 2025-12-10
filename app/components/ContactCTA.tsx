@@ -32,7 +32,7 @@ export default function ContactCTA() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {/* Primary CTA - Email */}
           <Link
-            href="mailto:sam2319667268@gmail.com"
+            href="mailto:sambai.codes@gmail.com"
             className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-200"
           >
             <Mail className="w-5 h-5" />
