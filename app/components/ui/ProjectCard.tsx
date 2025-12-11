@@ -128,6 +128,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               Code
             </Link>
           )}
+          {!liveUrl && !githubUrl && (
+            <span className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-dark-300 text-stone-400">
+              Internal codebase
+            </span>
+          )}
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 // Skills Section - Performance Optimized with CSS Animations
 // Uses useScrollAnimation hook for scroll-triggered animations
 
-import { techCardsItems } from "@/app/lib/constants";
+import { techCardsItems } from "@/app/lib/data";
 import { useScrollAnimation } from "@/app/hooks/useScrollAnimation";
 import Image from "next/image";
 

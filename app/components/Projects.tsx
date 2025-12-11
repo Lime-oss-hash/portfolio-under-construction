@@ -3,7 +3,7 @@
 
 "use client";
 
-import { portfolioProjects } from "@/app/lib/constants";
+import { portfolioProjects } from "@/app/lib/data";
 import { useScrollAnimation } from "@/app/hooks/useScrollAnimation";
 import ProjectCard from "./ui/ProjectCard";
 

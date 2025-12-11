@@ -55,7 +55,7 @@ portfolio-2/
 │   ├── hooks/
 │   │   └── useScrollAnimation.ts  # Scroll-triggered animation hook
 │   ├── lib/
-│   │   ├── constants.ts           # All portfolio data
+│   │   ├── data.ts                # All portfolio data
 │   │   ├── types.ts               # TypeScript interfaces
 │   │   └── utils.ts               # Utility functions (cn)
 │   ├── styles/
@@ -176,7 +176,7 @@ function MySection() {
 
 ### 1. Update Personal Information
 
-Edit `app/lib/constants.ts`:
+Edit `app/lib/data.ts`:
 
 ```typescript
 // Your tech stack (organized by category)
@@ -308,13 +308,13 @@ npm run build
 
 ## File Reference
 
-| File           | Purpose                      |
-| -------------- | ---------------------------- |
-| `page.tsx`     | Homepage composition         |
-| `layout.tsx`   | Root layout + SEO            |
-| `global.css`   | Tailwind theme + base styles |
-| `constants.ts` | All portfolio data           |
-| `utils.ts`     | `cn()` class merge utility   |
+| File         | Purpose                      |
+| ------------ | ---------------------------- |
+| `page.tsx`   | Homepage composition         |
+| `layout.tsx` | Root layout + SEO            |
+| `global.css` | Tailwind theme + base styles |
+| `data.ts`    | All portfolio data           |
+| `utils.ts`   | `cn()` class merge utility   |
 
 ---
 

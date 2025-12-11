@@ -1,4 +1,4 @@
-// Constants file for portfolio data
+// Portfolio data - projects and tech stack
 // Update these values with your own information
 
 import type { TechCard, Project } from "./types";
@@ -74,19 +74,18 @@ export const portfolioProjects: Project[] = [
   {
     id: "project-2",
     heading: "Waka Eastern Bay",
-    subheading: "Community Transport Platform",
+    subheading: "Internal Booking System",
     valueProp:
       "A complete booking system for a NZ non-profit, replacing manual coordination with automated scheduling.",
     highlights: [],
-    role: "Full-stack developer for non-profit client",
+    role: "Full-stack Developer · Client Project",
     imageUrl: "/imgs/projects/wakawebsite.png",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Nodemailer"],
-    githubUrl: "https://github.com/sambai-dev/frontend123",
     featured: false,
   },
   {
     id: "project-3",
-    heading: "DevPortfolio",
+    heading: "Animated Portfolio",
     subheading: "Personal Portfolio",
     valueProp:
       "Exploring Framer Motion animation patterns and portfolio performance optimizations.",
