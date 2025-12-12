@@ -22,12 +22,12 @@ export default function Footer() {
         <p className="text-sm text-stone-400">
           Open to graduate & junior full-stack roles
           <span className="text-stone-600 mx-2">·</span>
-          <a
+          <Link
             href="mailto:sambai.codes@gmail.com"
             className="text-primary hover:underline underline-offset-2"
           >
             sambai.codes@gmail.com
-          </a>
+          </Link>
         </p>
 
         {/* Line 3: Social icons */}
