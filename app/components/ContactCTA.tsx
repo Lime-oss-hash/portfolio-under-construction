@@ -45,7 +45,7 @@ export default function ContactCTA() {
             href="https://www.linkedin.com/in/sam-bai-dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-lg border border-dark-700 text-stone-300 font-medium hover:border-primary/50 hover:text-stone-200 transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-lg border border-dark-700 text-stone-300 font-medium hover:border-primary/50 hover:text-stone-200 transition-all duration-200 active:scale-95"
           >
             <Linkedin className="w-5 h-5" />
             View LinkedIn

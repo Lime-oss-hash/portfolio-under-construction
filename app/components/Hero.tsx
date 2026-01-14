@@ -82,7 +82,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download my CV (PDF)"
-          className="flex items-center gap-2 text-stone-300 hover:text-primary transition-colors duration-300"
+          className="flex items-center gap-2 text-stone-300 hover:text-primary transition-all duration-300 active:scale-95"
         >
           <Download className="w-5 h-5 text-primary" />
           <span className="font-medium text-sm sm:text-base">Download CV</span>

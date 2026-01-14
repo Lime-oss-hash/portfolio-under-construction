@@ -108,7 +108,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95",
                 featured
                   ? "bg-primary text-white hover:bg-primary/90"
                   : "bg-dark-300 text-stone-200 hover:bg-dark-400"
@@ -123,7 +123,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-dark-300 text-stone-200 hover:bg-dark-400 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-dark-300 text-stone-200 hover:bg-dark-400 transition-all duration-200 active:scale-95"
             >
               <Github className="w-4 h-4" />
               Code

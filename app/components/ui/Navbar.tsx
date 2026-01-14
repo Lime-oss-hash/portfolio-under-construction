@@ -107,7 +107,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             href={navItem.link}
             className={cn(
               // Base styling: light text with flex layout
-              "relative text-neutral-50 items-center flex",
+              "relative text-neutral-50 items-center flex group",
               // Hover effect: changes to primary color
               "hover:text-primary transition-colors duration-200",
               // Focus state for accessibility
@@ -118,8 +118,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             {/* Mobile: show only icon */}
             <span className="block sm:hidden">{navItem.icon}</span>
             {/* Desktop: show text label */}
-            <span className="hidden sm:block text-sm font-medium">
+            <span className="hidden sm:block text-sm font-medium relative">
               {navItem.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </span>
           </Link>
         ))}
