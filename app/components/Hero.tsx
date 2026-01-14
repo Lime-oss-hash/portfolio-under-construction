@@ -37,7 +37,7 @@ export default function Hero() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
         </span>
-        <span className="text-emerald-400">Open for Work</span>
+        <span className="text-emerald-400 animate-pulse">Open for Work</span>
       </motion.div>
 
       {/* Main Heading - Word reveal animation */}
