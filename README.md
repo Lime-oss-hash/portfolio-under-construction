@@ -33,6 +33,7 @@ npm run start
 | TypeScript    | 5.x     | Type safety                     |
 | next-themes   | 0.4.6   | Dark mode                       |
 | lucide-react  | 0.556.0 | Icons                           |
+| Lenis         | 1.3.17  | Smooth Scrolling                |
 
 ---
 
@@ -73,6 +74,19 @@ portfolio-2/
 
 ## Components
 
+### Smooth Scrolling (`components/SmoothScroll.tsx`)
+
+Implemented using [Lenis](https://github.com/darkroomengineering/lenis) for a "buttery-smooth" experience.
+
+**Configuration:**
+- **Duration:** 1.2s
+- **Easing:** Custom exponential decay
+- **Mobile:** `syncTouch: true` with `touchMultiplier: 1.3`
+- **Parallax:** Integrated into Hero section via `useLenis` hook
+- **Accessibility:** Respects reduced motion preferences (native handling)
+
+---
+
 ### Navbar (`components/ui/Navbar.tsx`)
 
 Floating, animated navigation bar.
@@ -83,6 +97,7 @@ Floating, animated navigation bar.
 - Hides when scrolling down, shows when scrolling up
 - Icons on mobile, text labels on desktop
 - Uses Framer Motion for smooth animations
+- **Integrated with Lenis** for smooth anchor scrolling
 
 **Props:**
 
