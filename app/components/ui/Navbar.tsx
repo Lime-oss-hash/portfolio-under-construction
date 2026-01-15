@@ -63,9 +63,12 @@ export const Navbar = ({ className }: NavbarProps) => {
           if (currentScrollY < 50) {
             setVisible(true);
           } else {
-            // Only update if direction changed
-            const isScrollingDown = currentScrollY > lastScrollY.current;
-            setVisible(!isScrollingDown);
+            // Only update if direction changed AND scrolled enough (hysteresis)
+            const diff = Math.abs(currentScrollY - lastScrollY.current);
+            if (diff > 10) { // Minimum scroll delta of 10px to prevent flashing
+              const isScrollingDown = currentScrollY > lastScrollY.current;
+              setVisible(!isScrollingDown);
+            }
           }
 
           lastScrollY.current = currentScrollY;
