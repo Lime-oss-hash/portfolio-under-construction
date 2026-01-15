@@ -9,7 +9,7 @@
 // - Fully mobile responsive
 
 import { motion } from "framer-motion";
-import { MapPin, ChevronRight, Download } from "lucide-react";
+import { MapPin, ChevronRight, Download, Github, Linkedin } from "lucide-react";
 import WordReveal from "./WordReveal";
 import { useLenis } from "lenis/react";
 import { useRef } from "react";
@@ -76,8 +76,7 @@ export default function Hero() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="mt-3 sm:mt-4 text-sm sm:text-base text-stone-400 text-center px-2"
       >
-        <span className="text-primary font-medium">Sam Bai</span> · Graduate
-        Full-Stack Developer · Crafting clean, user-friendly experiences
+        <span className="text-primary font-medium">Sam Bai</span> · Full-Stack Developer · Crafting clean, user-friendly experiences
       </motion.p>
 
       {/* CTA Buttons - Stack on mobile, side by side on larger screens */}
