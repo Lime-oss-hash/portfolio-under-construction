@@ -11,8 +11,27 @@
 import { motion } from "framer-motion";
 import { MapPin, ChevronRight, Download } from "lucide-react";
 import WordReveal from "./WordReveal";
+import { useLenis } from "lenis/react";
+import { useRef } from "react";
 
 export default function Hero() {
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useLenis(({ scroll }) => {
+    if (heroRef.current) {
+      heroRef.current.style.transform = `translateY(${scroll * 0.5}px)`;
+      // Fade out hero text as you scroll
+      heroRef.current.style.opacity = Math.max(0, 1.8 - scroll / 700).toString();
+    }
+    if (badgeRef.current) {
+      // Reduced speed to prevent overlap (was 1.2)
+      badgeRef.current.style.transform = `translateY(${scroll * 0.4}px)`;
+      // Faster fade out for the badge so it clears the way
+      badgeRef.current.style.opacity = Math.max(0, 1 - scroll / 300).toString();
+    }
+  });
+
   return (
     <section
       id="home"
@@ -24,27 +43,31 @@ export default function Hero() {
       </div>
 
       {/* Location Badge - Small accent above main heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        className="flex items-center gap-2 text-xs sm:text-sm text-stone-400 mb-3"
-      >
-        <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-stone-500" />
-        <span>Based in Hamilton, New Zealand</span>
-        <span className="text-stone-600">•</span>
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-        </span>
-        <span className="text-emerald-400 animate-pulse">Open for Work</span>
-      </motion.div>
+      <div ref={badgeRef} className="will-change-transform">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="flex items-center gap-2 text-xs sm:text-sm text-stone-400 mb-3"
+        >
+          <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-stone-500" />
+          <span>Based in Hamilton, New Zealand</span>
+          <span className="text-stone-600">•</span>
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+          </span>
+          <span className="text-emerald-400 animate-pulse">Open for Work</span>
+        </motion.div>
+      </div>
 
       {/* Main Heading - Word reveal animation */}
-      <WordReveal
-        words="Building Modern & Scalable Web Solutions"
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center max-w-3xl leading-tight px-2"
-      />
+      <div ref={heroRef} className="will-change-transform">
+        <WordReveal
+          words="Building Modern & Scalable Web Solutions"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center max-w-3xl leading-tight px-2"
+        />
+      </div>
 
       {/* Value Statement - Short one-liner */}
       <motion.p
@@ -88,8 +111,6 @@ export default function Hero() {
           <span className="font-medium text-sm sm:text-base">Download CV</span>
         </a>
       </motion.div>
-
-
     </section>
   );
 }

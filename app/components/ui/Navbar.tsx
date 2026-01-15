@@ -41,7 +41,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       e.preventDefault();
       const target = document.querySelector(link);
       if (lenis) {
-        lenis.scrollTo(link);
+        lenis.scrollTo(link, { offset: -70 });
       } else if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
