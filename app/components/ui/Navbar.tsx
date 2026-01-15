@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { House, BriefcaseBusiness, UserRound, Contact } from "lucide-react";
 import type { NavItem } from "@/app/lib/types";
+import { useLenis } from "lenis/react";
 
 // Navigation items with proper typing
 const navItems: NavItem[] = [
@@ -29,6 +30,23 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
   // State to control navbar visibility
   const [visible, setVisible] = useState(true);
+  
+  const lenis = useLenis();
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    link: string
+  ) => {
+    if (link.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(link);
+      if (lenis) {
+        lenis.scrollTo(link);
+      } else if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   // Refs to track scroll position without causing re-renders
   const lastScrollY = useRef(0);
@@ -105,6 +123,7 @@ export const Navbar = ({ className }: NavbarProps) => {
           <Link
             key={`link-${idx}`}
             href={navItem.link}
+            onClick={(e) => handleNavClick(e, navItem.link)}
             className={cn(
               // Base styling: light text with flex layout
               "relative text-neutral-50 items-center flex group",

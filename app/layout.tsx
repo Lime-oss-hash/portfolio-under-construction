@@ -2,6 +2,7 @@ import "@/app/styles/global.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import { ThemeProvider } from "./components/ThemeProvider";
+import SmoothScroll from "./components/SmoothScroll";
 
 // Raleway font - clean, modern look for portfolios
 const raleway = Raleway({ subsets: ["latin"] });
@@ -111,7 +112,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

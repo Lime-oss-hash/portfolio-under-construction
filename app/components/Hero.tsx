@@ -89,21 +89,7 @@ export default function Hero() {
         </a>
       </motion.div>
 
-      {/* Scroll indicator - hidden on very small screens */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-dark-700 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 bg-primary rounded-full" />
-        </motion.div>
-      </motion.div>
+
     </section>
   );
 }

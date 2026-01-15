@@ -34,6 +34,7 @@
 
 @layer base {
   /* Smooth scrolling for anchor links */
+  /* Note: 'scroll-behavior: smooth' is disabled when Lenis is active via the .lenis class below */
   html {
     scroll-behavior: smooth;
   }
@@ -172,4 +173,28 @@
   100% {
     background-position: 32px 32px;
   }
+}
+
+/* ============================================
+   LENIS SMOOTH SCROLLING
+   ============================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
