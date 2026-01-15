@@ -22,7 +22,7 @@ export default function Hero() {
     if (heroRef.current) {
       heroRef.current.style.transform = `translateY(${scroll * 0.5}px)`;
       // Fade out hero text as you scroll
-      heroRef.current.style.opacity = Math.max(0, 1.8 - scroll / 700).toString();
+      heroRef.current.style.opacity = Math.max(0, 1.5 - scroll / 500).toString();
     }
     if (badgeRef.current) {
       // Reduced speed to prevent overlap (was 1.2)
