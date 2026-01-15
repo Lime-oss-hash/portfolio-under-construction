@@ -17,7 +17,7 @@ export default function SmoothScroll({
         gestureOrientation: "vertical",
         smoothWheel: true,
         syncTouch: true, // "smoothTouch" in older versions - enables smooth scrolling on touch devices
-        touchMultiplier: 1, // Reduced from 2 to 1 to fix over-sensitivity on mobile
+        touchMultiplier: 1.5, // Increased by 30% from 1.0 to 1.3 for better comfort
       }}
     >
       {children}
